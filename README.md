@@ -2,7 +2,9 @@ The app service accepts a request for creating a user and asynchronously launche
 
 The requests operate synchronously and support the transmission of HTTP status codes and error messages from the microservice to the app.
 
-# Positive Path
+Staff from the database.go file in the users and cash services can be moved to an external module.
+
+# Positive path
 
 POST http://127.0.0.1:8001/create
 ```
