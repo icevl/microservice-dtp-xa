@@ -29,8 +29,6 @@ func DBConnect() {
 	}
 
 	fmt.Println("Database connected successfully")
-
-	// defer Database.Close()
 }
 
 func StartTransaction(uuid string) error {
