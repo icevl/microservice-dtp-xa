@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"time"
@@ -24,7 +23,6 @@ func HttpRequest(url string, payload interface{}) (int, error) {
 		return http.StatusInternalServerError, errors.New("Payload conversion error")
 	}
 
-	fmt.Println("url", url)
 	req, err := http.NewRequest(http.MethodPost, url, bytes.NewBuffer(jsonData))
 
 	if err != nil {

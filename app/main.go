@@ -101,18 +101,18 @@ func preparingStage(chain []services.Service) types.Result {
 			result := <-resultCh
 
 			if !result.Success {
-
-				rollback(chain)
-
 				// TODO: Sentry result.Error
-
+				// Also can`t break here due queue of services to rollback
 				response = types.Result{Message: result.Message, Status: result.Status, Success: false}
-				break
 			}
 		}
 	}()
 
 	wg.Wait()
+
+	if !response.Success {
+		rollback(chain)
+	}
 
 	return response
 }

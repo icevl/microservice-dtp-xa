@@ -13,15 +13,15 @@ type User struct {
 	Email string `json:"email"`
 }
 
-var path = loadPath()
+var userServicePath = loadUserServicePath()
 
-func loadPath() string {
+func loadUserServicePath() string {
 	godotenv.Load(".env")
 	return os.Getenv("USER_SERVICE")
 }
 
 func (u *User) Create(resultCh chan<- types.Result) {
-	if status, err := HttpRequest(fmt.Sprintf("%s/create", path), u); err != nil {
+	if status, err := HttpRequest(fmt.Sprintf("%s/create", userServicePath), u); err != nil {
 
 		fmt.Println("User creation (preparing) failed:", u.UUID)
 		resultCh <- types.Result{Success: false, Message: err.Error(), Status: status}
@@ -34,11 +34,11 @@ func (u *User) Create(resultCh chan<- types.Result) {
 
 func (u *User) Rollback() {
 	fmt.Println("User creation rollback:", u.UUID)
-	HttpRequest(fmt.Sprintf("%s/rollback", path), u)
+	HttpRequest(fmt.Sprintf("%s/rollback", userServicePath), u)
 }
 
 func (u *User) Commit(resultCh chan<- types.Result) {
-	if status, err := HttpRequest(fmt.Sprintf("%s/commit", path), u); err != nil {
+	if status, err := HttpRequest(fmt.Sprintf("%s/commit", userServicePath), u); err != nil {
 
 		fmt.Println("User creation (commit) failed:", u.UUID)
 		resultCh <- types.Result{Success: false, Message: err.Error(), Status: status}

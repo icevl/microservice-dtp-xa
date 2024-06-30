@@ -32,7 +32,7 @@ func DBConnect() {
 }
 
 func StartTransaction(uuid string) error {
-	_, err := Database.Exec(fmt.Sprintf("XA START 'user-%s'", uuid))
+	_, err := Database.Exec(fmt.Sprintf("XA START 'cash-%s'", uuid))
 	if err != nil {
 		return err
 	}
@@ -41,7 +41,7 @@ func StartTransaction(uuid string) error {
 }
 
 func EndTransaction(uuid string) error {
-	_, err := Database.Exec(fmt.Sprintf("XA END 'user-%s'", uuid))
+	_, err := Database.Exec(fmt.Sprintf("XA END 'cash-%s'", uuid))
 	if err != nil {
 		return err
 	}
@@ -50,7 +50,7 @@ func EndTransaction(uuid string) error {
 }
 
 func PrepareTransaction(uuid string) error {
-	_, err := Database.Exec(fmt.Sprintf("XA PREPARE 'user-%s'", uuid))
+	_, err := Database.Exec(fmt.Sprintf("XA PREPARE 'cash-%s'", uuid))
 	if err != nil {
 		return err
 	}
@@ -59,7 +59,7 @@ func PrepareTransaction(uuid string) error {
 }
 
 func RollbackTransaction(uuid string) error {
-	_, err := Database.Exec(fmt.Sprintf("XA ROLLBACK 'user-%s'", uuid))
+	_, err := Database.Exec(fmt.Sprintf("XA ROLLBACK 'cash-%s'", uuid))
 	if err != nil {
 		return err
 	}
@@ -68,7 +68,7 @@ func RollbackTransaction(uuid string) error {
 }
 
 func CommitTransaction(uuid string) error {
-	_, err := Database.Exec(fmt.Sprintf("XA COMMIT 'user-%s'", uuid))
+	_, err := Database.Exec(fmt.Sprintf("XA COMMIT 'cash-%s'", uuid))
 	if err != nil {
 		return err
 	}
