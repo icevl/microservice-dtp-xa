@@ -10,26 +10,22 @@ import (
 
 const PORT = 8001
 
-type NewUserPayload struct {
-	Email string `json:"email" binding:"required"`
-}
-
 func init() {
 	gin.SetMode(gin.ReleaseMode)
 }
 
 func main() {
-	router := setUpRouter()
-	fmt.Printf("Server running on port %d\n", PORT)
+	router := setupRouter()
 
 	err := router.Run(":" + fmt.Sprintf("%d", PORT))
 	if err != nil {
 		fmt.Printf("Error starting server: %s\n", err)
 	}
 
+	fmt.Printf("Server running on port %d\n", PORT)
 }
 
-func setUpRouter() *gin.Engine {
+func setupRouter() *gin.Engine {
 	router := gin.Default()
 	router.POST("/create", newUser)
 
