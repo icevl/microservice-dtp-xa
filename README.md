@@ -4,6 +4,12 @@ The requests operate synchronously and support the transmission of HTTP status c
 
 Staff from the database.go file in the users and cash services can be moved to an external module.
 
+# Components
+
+- app - transaction manager
+- user - microservice with single users table
+- cash - microservice with single cash table
+
 # Positive path
 
 POST http://127.0.0.1:8001/create
