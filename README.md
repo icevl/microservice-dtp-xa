@@ -15,15 +15,16 @@ Staff from the database.go file in the users and cash services can be moved to a
 # Happy path
 
 POST http://127.0.0.1:8001/create
-```
+
+```json
 {
     "email": "test@test.com"
 }
 ```
 
-Response:
+Response (200):
 
-```
+```json
 {
   "success": true,
   "uuid": "9c45856b-13c5-46f4-8b69-0a333d1b885e"
@@ -42,15 +43,15 @@ User creation (commit) successfully: 9c45856b-13c5-46f4-8b69-0a333d1b885e
 # Unhappy path
 
 POST http://127.0.0.1:8001/create
-```
+```json
 {
     "email": "123"
 }
 ```
 
-Response:
+Response (409):
 
-```
+```json
 {
   "message": "Invalid email format",
   "success": false
