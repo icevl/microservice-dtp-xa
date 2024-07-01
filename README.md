@@ -66,3 +66,9 @@ Cash creation (preparing) successfully: 57216741-3db1-4b3c-9226-35530a961a5d
 User creation rollback: 57216741-3db1-4b3c-9226-35530a961a5d
 Cash creation rollback: 57216741-3db1-4b3c-9226-35530a961a5d
 ```
+
+# Links
+- [Distributed transaction patterns for microservices](https://developers.redhat.com/articles/2021/09/21/distributed-transaction-patterns-microservices-compared)
+- [MySQL XA Transaction States](https://dev.mysql.com/doc/refman/8.4/en/xa-states.html)
+- [PostgreSQL XA Transaction](https://www.postgresql.org/docs/current/two-phase.html)
+- [MongoDB Two Phase Commits](https://www.mongodb.com/docs/v2.2/tutorial/perform-two-phase-commits/)
