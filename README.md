@@ -1,3 +1,5 @@
+# Overview
+
 The app service accepts a request for creating a user and asynchronously launches requests to microservices (users, cash) in goroutines, gradually going through the stages of preparing and then committing. When all services are committed or an error occurs, the request is completed.
 
 The requests operate synchronously and support the transmission of HTTP status codes and error messages from the microservice to the app.
