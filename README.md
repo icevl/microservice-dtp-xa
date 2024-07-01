@@ -10,7 +10,7 @@ Staff from the database.go file in the users and cash services can be moved to a
 - user - microservice with single users table
 - cash - microservice with single cash table
 
-# Positive path
+# Happy path
 
 POST http://127.0.0.1:8001/create
 ```
@@ -37,7 +37,7 @@ Cash creation (commit) successfully: 9c45856b-13c5-46f4-8b69-0a333d1b885e
 User creation (commit) successfully: 9c45856b-13c5-46f4-8b69-0a333d1b885e
 ```
 
-# Negative path
+# Unhappy path
 
 POST http://127.0.0.1:8001/create
 ```
